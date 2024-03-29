@@ -15,4 +15,4 @@ api.add_resource(KLtxt, '/txt')
 
 if __name__ == '__main__':
     # Run the Flask app on your IP address
-    app.run(host='192.168.1.72', port=5000)
+    app.run(host='0.0.0.0', port=5000)
