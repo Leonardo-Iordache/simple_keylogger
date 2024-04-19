@@ -1,0 +1,3 @@
+D:/Ingenieria_Informatica/4_curso/Seguridad en sistemas distribuidos/kylogger/cmake-build-debug/CMakeFiles/kylogger.dir
+D:/Ingenieria_Informatica/4_curso/Seguridad en sistemas distribuidos/kylogger/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Ingenieria_Informatica/4_curso/Seguridad en sistemas distribuidos/kylogger/cmake-build-debug/CMakeFiles/rebuild_cache.dir
