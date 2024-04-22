@@ -1,8 +1,8 @@
-# Install script for directory: D:/Ingenieria_Informatica/4_curso/Seguridad en sistemas distribuidos/kylogger
+# Install script for directory: C:/Users/alber/Desktop/TODAS MIS COSAS/Programas/Scripts/simple_keylogger
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/kylogger")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/simple_keylogger")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Ingenieria_Informatica/4_curso/Seguridad en sistemas distribuidos/kylogger/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/alber/Desktop/TODAS MIS COSAS/Programas/Scripts/simple_keylogger/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
