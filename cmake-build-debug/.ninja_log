@@ -1,16 +1,14 @@
 # ninja log v5
-20	1800	7355214519513500	CMakeFiles/simple_keylogger.dir/main.cpp.obj	e0e7c219e2ce3c06
-5	1907	7355215648888692	simple_keylogger.exe	645c55191f5aeaa5
-3	268	7355216030125732	build.ninja	23d97e9431dc95f8
-3	245	7355216030125732	build.ninja	23d97e9431dc95f8
-5	2564	7355216033677027	simple_keylogger.exe	f68dba819b510c05
-6	1791	7355218240479003	CMakeFiles/simple_keylogger.dir/main.cpp.obj	e0e7c219e2ce3c06
-1792	4009	7355218243929025	simple_keylogger.exe	f68dba819b510c05
-7	1741	7355219245734264	CMakeFiles/simple_keylogger.dir/main.cpp.obj	e0e7c219e2ce3c06
-1741	3995	7355219248987664	simple_keylogger.exe	f68dba819b510c05
-7	1790	7355221580106034	CMakeFiles/simple_keylogger.dir/main.cpp.obj	e0e7c219e2ce3c06
-1791	4095	7355221583404421	simple_keylogger.exe	f68dba819b510c05
-6	1714	7355222168838946	CMakeFiles/simple_keylogger.dir/main.cpp.obj	e0e7c219e2ce3c06
-1714	3982	7355222172522803	simple_keylogger.exe	f68dba819b510c05
 7	1570	7355225649329775	CMakeFiles/simple_keylogger.dir/main.cpp.obj	e0e7c219e2ce3c06
 1570	3718	7355225652528464	simple_keylogger.exe	f68dba819b510c05
+3	245	7356003322946156	build.ninja	23d97e9431dc95f8
+7	1791	7356005012772144	CMakeFiles/simple_keylogger.dir/main.cpp.obj	e0e7c219e2ce3c06
+1792	4517	7356005016600819	simple_keylogger.exe	f68dba819b510c05
+5	2615	7356006004293918	simple_keylogger.exe	f68dba819b510c05
+6	1436	7356007336728556	CMakeFiles/simple_keylogger.dir/main.cpp.obj	e0e7c219e2ce3c06
+1437	4301	7356007340252837	simple_keylogger.exe	f68dba819b510c05
+5	1427	7356008157940628	CMakeFiles/simple_keylogger.dir/main.cpp.obj	e0e7c219e2ce3c06
+1428	3997	7356008161181253	simple_keylogger.exe	f68dba819b510c05
+5	2424	7356008956453047	simple_keylogger.exe	f68dba819b510c05
+6	2648	7356011921482598	simple_keylogger.exe	f68dba819b510c05
+4	2591	7356012815216935	simple_keylogger.exe	f68dba819b510c05

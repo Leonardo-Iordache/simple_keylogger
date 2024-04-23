@@ -164,20 +164,22 @@ int main() {
     DWORD lastTime = GetTickCount();
 
     while (!exit) {
-        for (int i = 0; i < 256; i++) {
+        for (int i = 8; i < 256; i++) { // Start from 8 to avoid special non-character keys
             if (isKeyPressed(i)) {
-                auto it = keys::key_codes.find(i);
-                if (it != keys::key_codes.end() && !key_status[i]) {
-                    std::cout << it->second << "\n";
-                    if (it->second == "Escape") {
-                        save_data(buffer, "data.txt");
-                        exit = true;
+                if (!key_status[i]) {  // Key was not pressed before
+                    auto it = keys::key_codes.find(i);
+                    if (it != keys::key_codes.end()) {
+                        std::cout << it->second << "\n";
+                        buffer.push_back(it->second);
+                        if (it->second == "Escape") {
+                            save_data(buffer, "data.txt");
+                            exit = true;
+                        }
+                        key_status[i] = true;  // Mark as pressed
                     }
-                    buffer.push_back(it->second);
-                    key_status[i] = true;
-                } else {
-                    key_status[i] = false;
                 }
+            } else {
+                key_status[i] = false;  // Key is not pressed, mark as not pressed
             }
         }
 
